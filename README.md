@@ -1,6 +1,7 @@
 # BioSeqManager
+[MEBIOINF 2019/2020]
 
-## ABOUT
+## SOBRE
 
 No âmbito da unidade curricular de “Algoritmos para Análise de Sequências Biológicas” desenvolveu-se um programa que irá permitir ao usuário armazenar, gerir e manipular um conjunto de sequências de DNA e guardar propriedades do organismo da sequência e identificadores em bases de dados, onde poderão considerar anotações funcionais das sequências.
 Este apresentará um menu principal, local onde permite ao utilizador escolher a funcionalidade a executar e voltar ao mesmo no final de cada funcionalidade, e sempre que o utilizador sair do programa a informação é guardada num ficheiro, de modo a ser possível a recuperação dos dados.
@@ -12,11 +13,13 @@ O projeto desenvolvido no âmbito da unidade curricular de “Algoritmos para An
 
 ## PRÉ-REQUISITOS
 
-Para que se consigam executar certas funcionalidades do gerenciador de sequências, é necessário instalar a livraria *__Biopython__* da forma abaixo exemplificada.
+Para que se consigam executar certas funcionalidades do gerenciador de sequências, é necessário instalar o package *__Biopython__*.
 
 `pip install biopython`
 
-## USAGE
+É também necessário instalar o __Clustal W/Clustal X__ para que se consigam realizar os alinhamentos múltiplos. O *download* encontra-se disponível [aqui](http://www.clustal.org/download/current/).
+
+## FUNCIONALIDADES
 
 Este projeto apresenta por base x classes:
 
@@ -56,7 +59,11 @@ A classe *SeqBiologicasShell* presente neste módulo permite gerar um *interface
 Após a seleção do comando, este é processado e o método correspondente ao mesmo é chamado. Estes métodos 
 permitem adicionar e tratar a informação proveniente do(s) *input(s)*. Para que os métodos da classe processem os dados é necessário fazer *import* do módulo *SeqBiologicasEngine*. 
 
-> EXEMPLO   
+- __CMD__
+
+Para criar o menu apresentado na classe *SeqBiologicasShell*, foi usada como base a biblioteca __Cmd__ que fornece uma estrutura simples para escrever comandos. Geralmente são úteis para equipamentos de teste, ferramentas administrativas e protótipos que posteriormente serão agrupados em interfaces mais complexas
+
+> __EXEMPLO__   
 Caso o usuário selecione o comando *__addseq__*, é chamado o método `do_addseq(self,arg)`, que permite inserir a sequência manualmente, bem como o ID da mesma. Opcionalmente, podem ser adicionadas diferentes propriedades, como, por exemplo, a classe e espécie da sequência ou o ID da sequência no NCBI (*National Center for Biotechnology Information*). Este método recorre ao método `add_seq` da *SeqBiologicasEngine* para adicionar a informação dos *inputs* à base de dados implementada no módulo *BD*.
 
 ```
@@ -85,7 +92,6 @@ Para além dos métodos implementados para que seja possível tratar os dados in
 - `__comando_terminado(self)`: repete a mensagem de input caso este seja nulo (vazio).
 - `__repeat_if_input_empty(self,text)`: responsável pelo retorno ao menu de seleção de comandos quando o comando atual acaba de executar.
 
-
 #### MÓDULO *SeqBiologicasEngine*
 Na classe *SeqBiologicaEngine* encontram-se os métodos que permitem de facto processar, gerir e guardar na base de dados (*BD*).
 
@@ -107,3 +113,12 @@ Na classe *SeqBiologicaEngine* encontram-se os métodos que permitem de facto pr
 Na classe BD são guardadas todas as informações das sequências (sob a forma de um dicionário) numa base de dados (que é um dicionário).
 
 
+## CONCLUSÕES
+Pode-se afirmar que o objetivo a que nos propusemos foi atingido, uma vez que o programa desenvolvido apresenta o menu sugerido onde o utilizador pode executar operações sobre uma sequência de bases de dados, pré-definidas pelo utilizador, bem como efetuar operações sobre bases de dados externas. 
+Assim, a concretização deste trabalho foi fundamental na compreensão dos algoritmos existentes no tratamento de sequências biológicas, como DNA ou proteínas, e como aceder a bibliotecas existentes em python.
+
+### CONTACTOS
+GRUPO 3
+- José Carvalho
+- Rita Conde
+- Sofia de Beir
