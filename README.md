@@ -21,14 +21,14 @@ Para que se consigam executar certas funcionalidades do gerenciador de sequênci
 
 ## FUNCIONALIDADES
 
-Este projeto apresenta por base x classes:
+Este projeto apresenta por base 15 classes:
 
   - SeqBiologicasShell
   - SeqBiologicasEngine
   - BD
-  - Alinhamento
-  - Arvores
-  - IO
+  - ExternalMAlign
+  - ExternalTree
+  - Messages
   - AlignSeq*
   - BinaryTree*
   - ClustHier*
@@ -37,24 +37,31 @@ Este projeto apresenta por base x classes:
   - MySeq*
   - SubsMatrix*
   - UPGMA*
+  - MultipleAlignP
 
 As classes marcadas com * foram desenvolvidas durante o decorrer das aulas de AASB.
 
 #### MÓDULO *SeqBiologicasShell*
 A classe *SeqBiologicasShell* presente neste módulo permite gerar um *interface*  de forma a que o utilizador seja capaz de manipular sequências biológicas. Dentro do interpretador de comandos, o utilizador poderá recorrer às seguintes funcionalidades:  
 
-- *__sair__*: permite sair do interpretador de comandos.
 - *__addseq__*: adicionar sequências de forma manual.
 - *__addseq_fasta__*: adicionar sequências a partir de um ficheiro em formato *FASTA*.
 - *__addseq_text__*: adicionar sequências biológicas em formato de texto.
 - *__export_seqs__*: exportar sequências guardadas num ficheiro.
-- *__info__*: mostrar informações detalhadas de uma sequência.
-- *__semelhante__*: procura da sequência guardada mais semelhante.
+- *__alinMultiplo__*: faz o alinhamento múltiplo das sequências.
+- *__frequencia__*: calcula a frequência de um símbolo/sub-sequência de tamanho k.
 - *__padrao__*: procura um padrão numa ou várias sequências.
+- *__seqs_bd__*: mostra o conteúdo da base de dados.
 - *__arvore__*: permite visualizar a árvore filogenética das sequências.
-- *__AlinMultiplo__*: faz o alinhamento múltiplo das sequências.
-- *__Freq__*: calcula a frequência de um símbolo/sub-sequência de tamanho k.
-- *__Seqs_bd__*: mostra o conteúdo da base de dados.
+- *__semelhante__*: procura da sequência guardada mais semelhante.
+- *__traducao__*: procura a tradução de proteínas de todas as *reading frames* a partir da sequência selecionada.
+- *__help__*: comando de ajuda.
+- *__blast__*: executa um blast de uma sequência contra a base de dados.
+- *__info__*: mostrar informações detalhadas de uma sequência.
+- *__addseq_NCBI__*: adiciona sequência retirada do NCBI.
+- *__alinMultiploO__*: alinhamento múltiplo recorrendo ao *Clustal W*.
+- *__arvoreO__*: gera árvore filogenética recorrendo a ficheiros proveninentes do alinhamento múltiplo com *Clustal W*.
+- *__sair__*: permite sair do interpretador de comandos.
 
 Após a seleção do comando, este é processado e o método correspondente ao mesmo é chamado. Estes métodos 
 permitem adicionar e tratar a informação proveniente do(s) *input(s)*. Para que os métodos da classe processem os dados é necessário fazer *import* do módulo *SeqBiologicasEngine*. 
@@ -105,9 +112,16 @@ Na classe *SeqBiologicaEngine* encontram-se os métodos que permitem de facto pr
 - *__frequencia_subseq__*: encontra todas as ocorrências de uma sub-sequência da sequência dada.
 - *__match_padrao__*: encontra todas as ocorrências de um padrão na sequência.
 - *__arvore__*: gera a árvore filogenética das sequências.
+- *__alinMultiplo__*: realiza o alinhamento múltiplo das sequências presentes na base de dados.
+- *__traducao__*: procura a tradução de proteínas de todas as *reading frames* (ORFs) a partir da sequência selecionada.
+- *__exportarOrfs__*: guarda todos os ORFs num ficheiro "*.txt*".
 - *__print_seq__*: dado um ID de uma sequência, se esta estiver presente na base de dados, retorna toda a informação presente sobre a mesma.
 - *__printBD__*: retorna o conteúdo da base de dados.
 - *__printSeqs__*: imprime todas as sequências presentes na base de dados.
+- *__get_NCBI_seq__*: recorre ao Entrez para retirar sequências de DNA do NCBI.
+- *__execute_blast__*: realiza um programa de *blastn* dados certos parâmetros como o valor do *e-value*.
+- *__execute_alinhamento_multiplo_outros__*: permite correr um programa de alinhamento múltiplo recorrendo ao *Clustal W*.
+- *__execute_external_tree__*: dado o ficheiro gerado no alinhamento múltiplo com *Clustal W*, retorna uma árvore filogenética para as sequências contidas no ficheiro.
  
 #### MÓDULO BD
 Na classe BD são guardadas todas as informações das sequências (sob a forma de um dicionário) numa base de dados (que é um dicionário).
@@ -122,3 +136,5 @@ GRUPO 3
 - José Carvalho
 - Rita Conde
 - Sofia de Beir
+
+Contacto: pg38263@alunos.uminho.pt
