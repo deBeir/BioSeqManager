@@ -37,7 +37,7 @@ Este projeto apresenta por base 15 classes:
   - MySeq*
   - SubsMatrix*
   - UPGMA*
-  - MultipleAlignP
+  - MultipleAlign*
 
 As classes marcadas com * foram desenvolvidas durante o decorrer das aulas de AASB.
 
