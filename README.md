@@ -34,7 +34,7 @@ For this project, 15 classes were developed:
   - MultipleAlign
 
 
-#### *SeqBiologicasShell* MODULE
+#### MODULE: *SeqBiologicasShell* 
 The class *SeqBiologicasShell* allows the generation of an *interface* so that the user is capable of manipulating biological sequences. Inside of this command shell, the user can resort to the following functionalities:
 
 - *__addseq__*: manually adds sequences to the database.
@@ -58,7 +58,7 @@ The class *SeqBiologicasShell* allows the generation of an *interface* so that t
 
 After its selection, the command is processed and the corresponding method is called. These methods allow the addition and management of the information extracted from the *input(s)*. For these methods to properly work, it is mandatory to *import* the *SeqBiologicasEngine* module. 
 
-#### *SeqBiologicasEngine* MODULE
+#### MODULE: *SeqBiologicasEngine*
 The *SeqBiologicaEngine* class contains all of the methods that ultimately allow the processing and management of the database (*BD*).
 
 - *__getDB__*: returns the database (dictionary of sequences).
@@ -82,5 +82,5 @@ The *SeqBiologicaEngine* class contains all of the methods that ultimately allow
 - *__execute_multiple_alignW__*: performs multiple alignments resorting to *Clustal W*.
 - *__execute_external_tree__*: given the output file generated during the multiple alignment with *Clustal W*, returns a phylogenetic tree with all the sequences present in the file.
 
-#### *BD* MODULE
+####  MODULE: *BD* 
 This class was specifically developed to store all of the sequences' information (as a dictionary) inside of a database (another dictionary).
